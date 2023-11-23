@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Page</title>
+</head>
+<body>
+    <label for="images">Enter Image Names (comma-separated):</label>
+    <input type="text" id="images" />
+
+    <button onclick="sendMessage()">Send Message</button>
+
+    <script>
+        function sendMessage() {
+            const images = document.getElementById('images').value;
+            
+            // Use fetch to send the message via AJAX
+            fetch('/sendMessage', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message: images }),
+            });
+        }
+    </script>
+</body>
+</html>

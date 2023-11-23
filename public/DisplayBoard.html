@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Board</title>
+</head>
+<body>
+    <div id="display1"></div>
+    <div id="display2"></div>
+
+    <script>
+        const displayDiv1 = document.getElementById('display1');
+        const displayDiv2 = document.getElementById('display2');
+
+        // WebSocket for Display 1
+        const socketDisplay1 = new WebSocket('ws://localhost:3000/display1');
+        socketDisplay1.onmessage = function (event) {
+            const imageSrc = `/images/${event.data}.jpg`;
+            const imgElement = document.createElement('img');
+            imgElement.src = imageSrc;
+            imgElement.alt = `Image ${event.data}`;
+            displayDiv1.innerHTML = '';
+            displayDiv1.appendChild(imgElement);
+        };
+
+        // WebSocket for Display 2
+        const socketDisplay2 = new WebSocket('ws://localhost:3000/display2');
+        socketDisplay2.onmessage = function (event) {
+            const imageSrc = `/images/${event.data}.jpg`;
+            const imgElement = document.createElement('img');
+            imgElement.src = imageSrc;
+            imgElement.alt = `Image ${event.data}`;
+            displayDiv2.innerHTML = '';
+            displayDiv2.appendChild(imgElement);
+        };
+    </script>
+</body>
+</html>

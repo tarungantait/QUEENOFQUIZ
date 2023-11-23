@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mssql": "^10.0.1",
+    "tedious": "^16.6.0",
+    "ws": "^8.14.2"
+  },
+  "name": "qz2",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
